@@ -1,6 +1,6 @@
 FROM node
 LABEL org.label-scema.version=v1.1
-RUN mkdir -p src
+RUN mkdir /src/
 RUN git clone https://github.com/linuxacademy/content-weather-app.git src
 RUN mkdir -p /var/node
 ADD src/ /var/node/
