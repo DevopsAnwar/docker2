@@ -1,15 +1,12 @@
-FROM node
+FROM node:14
 
+WORKDIR /usr/src/app
 
+COPY package.json .
+RUN npm install 
+COPY . .
 
-RUN git clone https://github.com/linuxacademy/content-weather-app.git /src
-
-
-RUN mkdir -p /var/node
-WORKDIR /var/node
-ADD /src/* /var/node/
-
-RUN npm install
 EXPOSE 3000
-CMD ./bin/www
+
+CMD ["node", "index.js"]
 
